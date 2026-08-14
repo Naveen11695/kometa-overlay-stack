@@ -1,0 +1,148 @@
+######################################################
+#                  AWARDS 10.0                       #
+######################################################
+
+templates:
+  Awards:
+    optional:
+      - trakt_list
+    sort_title: zz_<<collection_name>>
+    sync_mode: sync
+    smart_label: release.desc
+    delete_not_scheduled: false
+    visible_library: false
+    trakt_list:
+      - <<trakt_list>>
+
+  Award:
+    smart_label: release.desc
+    sync_mode: sync
+    visible_library: false
+    sort_title: zz_<<collection_name>>
+
+  Award Other:
+    smart_label: release.desc
+    sync_mode: sync
+    sort_title: zz_<<collection_name>>
+    visible_library: true
+
+# Movies who has won some the most prestigious awards
+collections:
+  Critics Choice Awards - Winners:
+    template: { name: Awards }
+    summary: The Critics' Choice Movie Awards (formerly known as the Broadcast Film Critics Association Award) is an awards show presented annually by the American-Canadian Critics Choice Association to honor the finest in cinematic achievement.
+    visible_shared: monthly(14)
+    file_poster: config/posters/Critics Choice Awards Winners.png
+    imdb_award:
+      event_id: "ev0000133"
+      event_year: "1996-current"
+      winning: true
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Golden Globe - Best Picture:
+    template: { name: Awards }
+    summary: The Golden Globe Awards are accolades bestowed by the Hollywood Foreign Press Association starting in January 1944, recognizing excellence in both American and international film and television. Beginning in 2022, there are 105 members of the HFPA.
+    visible_library: true
+    visible_shared:
+      - monthly(23)
+      - monthly(24)
+    file_poster: config/posters/Golden Globe Best Picture.png
+    imdb_award:
+      event_id: "ev0000292"
+      event_year: "1944-current"
+      winning: true
+      category_filter:
+        - Best Picture
+        - Best Motion Picture - Drama
+        - Best Motion Picture - Comedy or Musical
+        - Best Motion Picture - Animated
+        - Best Motion Picture - Non-English Language
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Golden Globe - Nominees:
+    template: { name: Awards }
+    summary: The Golden Globe Awards are accolades bestowed by the Hollywood Foreign Press Association starting in January 1944, recognizing excellence in both American and international film and television. Beginning in 2022, there are 105 members of the HFPA.
+    visible_shared:
+      - monthly(23)
+      - monthly(24)
+    file_poster: config/posters/Golden Globe Nominees.png
+    imdb_award:
+      event_id: "ev0000292"
+      event_year: "1944-current"
+      winning: false
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Golden Globe - Winners:
+    template: { name: Awards }
+    summary: The Golden Globe Awards are accolades bestowed by the Hollywood Foreign Press Association starting in January 1944, recognizing excellence in both American and international film and television. Beginning in 2022, there are 105 members of the HFPA.
+    visible_library: true
+    visible_shared:
+      - monthly(17)
+      - monthly(18)
+    file_poster: config/posters/Golden Globe Winners.png
+    imdb_award:
+      event_id: "ev0000292"
+      event_year: "1944-current"
+      winning: true
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Oscars - Best Picture:
+    template: { name: Awards }
+    visible_library: true
+    visible_shared:
+      - monthly(21)
+      - monthly(22)
+    summary: Highest honor at the oscars.
+    file_poster: config/posters/Oscars Best Picture.png
+    imdb_award:
+      event_id: "ev0000003"
+      event_year: "1929-current"
+      winning: true
+      category_filter:
+        - Best Picture
+        - Best Motion Picture of the Year
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Oscars - Nominees:
+    template: { name: Awards }
+    file_poster: config/posters/Oscars Nominees.png
+    summary: Oscar Category Winning Movies.
+    imdb_award:
+      event_id: "ev0000003"
+      event_year: "1929-current"
+      winning: false
+      type: "movie,tv_movie"
+      language: "en"
+      sort_by: release.desc
+      limit: 9999
+
+  Oscars - Winners:
+    template: { name: Awards }
+    visible_library: true
+    visible_shared:
+      - monthly(30)
+      - monthly(31)
+    file_poster: config/posters/Oscars Winners.png
+    summary: Oscar Category Winning Movies.
+    imdb_award:
+      event_id: "ev0000003"
+      event_year: "1929-current"
+      winning: true
+      language: "en"
+      sort_by: release.desc
+      limit: 9999

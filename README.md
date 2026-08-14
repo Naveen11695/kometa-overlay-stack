@@ -9,6 +9,7 @@ This single repo replaces the deprecated [kometa-overlay-configs](https://github
 - [Architecture](#architecture)
 - [Screenshots](#screenshots)
 - [Overlay Anatomy](#overlay-anatomy)
+- [Anime Poster Anatomy](#anime-poster-anatomy)
 - [Episode Title Card Anatomy](#episode-title-card-anatomy)
 - [Collections](#collections)
 - [Sources & Credits](#sources--credits)
@@ -112,6 +113,23 @@ Annotated example of a movie poster with multiple overlays applied (*Lord of the
 On this poster, the **4K**, **EXTENDED EDITION**, and **HDR** badges all come from the jmxd **media_info** bar (`config/3-media_info.yml` → `overlays/movies/media_info.yml`), which reads resolution, edition, and HDR from the TRaSH-style filename. The **8.9** score is from the customized audience-rating overlay (`config/3-audience_rating.yml` → `overlays/movies/audience_rating.yml`).
 
 In **production**, Movies does **not** load the standalone `4k.yml` pack (`3.1-Movies_Overlays_4K.yml`). Active overlays are **media_info**, **audience_rating**, **UMTK** (Coming Soon, trending top-10), and **recently_added** (NEW ribbon). See [Production overlay wiring](#production-overlay-wiring). To use the separate jhn322 4K/HDR badge images instead of (or alongside) media_info, add `overlays/movies/4k.yml` to `overlay_files` — see [Optional / inactive overlays](#optional--inactive-overlays).
+
+## Anime Poster Anatomy
+
+Annotated example of an anime series poster with overlays applied (*Jujutsu Kaisen*):
+
+![Anime poster anatomy — Peacock logo, RETURNING ribbon, rating](docs/images/anime-poster-explainer.png)
+
+| Badge | Location | What it shows | Config file | Source |
+|-------|----------|---------------|-------------|--------|
+| NBC/Peacock logo | Top-left | Streaming network logo | `overlays/networks/TSSK-Kabeb.yml` | [netplexflix/Overlays](https://github.com/netplexflix/Overlays) |
+| Green ring/check | Top-left (around logo) | Watch progress or network badge accent | `overlays/networks/TSSK-Kabeb.yml` | [netplexflix/Overlays](https://github.com/netplexflix/Overlays) |
+| RETURNING | Bottom-left | Show status ribbon (orange) | `umtk/TSSK_TV_RETURNING_OVERLAYS.yml` | UMTK generated |
+| 8.5 | Bottom-right | Rating chip (green) | `overlays/movies/audience_rating.yml` (`3-audience_rating.yml`) | [jhn322](https://github.com/jhn322/kometa-config) + customized |
+
+**What this screenshot shows vs. production wiring**
+
+**TSSK-Kabeb** (`config/TSSK-Kabeb.yml`) provides the streaming network logos and badge accents in the top-left. **UMTK** generates status ribbons dynamically — RETURNING, ENDED, NEW, and other TV status overlays are written to `config/umtk/` on each UMTK run (this poster shows the RETURNING ribbon from `TSSK_TV_RETURNING_OVERLAYS.yml`). The **8.5** score comes from the customized audience-rating overlay shared across Shows and Anime libraries. See [Production overlay wiring](#production-overlay-wiring).
 
 ## Episode Title Card Anatomy
 

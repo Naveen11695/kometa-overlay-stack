@@ -1,0 +1,86 @@
+#####################################################
+#                 HOLIDAYS 8.0                      #
+#####################################################
+
+templates:
+  Holiday:
+    sort_title: zzzzzzzzzz_<<collection_name>>
+    smart_label: release.desc
+    sync_mode: sync
+    visible_home: false
+
+# Holiday collections that will show up when the holiday has started and disappear when it has ended
+collections:
+  Christmas :
+    template: { name: Holiday }
+    visible_home: range(12/01-12/26)
+    visible_shared: range(12/01-12/26)
+    summary: Ho ho ho.
+    file_poster: config/posters/Christmas.png
+    trakt_list:
+      - https://trakt.tv/users/ad76/lists/hallmark-christmas?sort=released,asc
+      - https://trakt.tv/users/k0meta/lists/christmas-extravaganza-non-tv-movie
+      - https://trakt.tv/users/movistapp/lists/christmas-movies
+      - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
+      - https://trakt.tv/users/patrickjmcd/lists/christmas?sort=rank,asc
+      - https://trakt.tv/users/biggsandroid/lists/christmas?sort=title,asc
+      - https://trakt.tv/users/ednagrinch/lists/christmas?sort=rank,asc
+      - https://trakt.tv/users/vmsanta/lists/christmas?sort=rank,asc
+
+  Fathers Day ‍:
+    template: { name: Holiday }
+    visible_home: range(11/08-11/14)
+    visible_shared: range(11/08-11/14)
+    summary: Every Fathers Special day.
+    file_poster: config/posters/Fathers Day.png
+    trakt_list:
+      - https://trakt.tv/users/fcisco13/lists/dad-movies?sort=rank,asc
+      - https://trakt.tv/users/marko8426/lists/dad-s-best-action-movies?sort=rank,asc
+
+  Halloween :
+    template: { name: Holiday }
+    visible_home: range(10/01-10/31)
+    visible_shared: range(10/01-10/31)
+    summary: This is Halloween!
+    file_poster: config/posters/Halloween..png
+    trakt_list:
+      - https://trakt.tv/users/29zombies/lists/halloween
+      - https://trakt.tv/users/kairbear08/lists/halloween
+      - https://trakt.tv/users/pterisaur/lists/halloween?sort=popularity,asc
+      - https://trakt.tv/lists/official/halloween-collection?sort=rank,asc
+      - https://trakt.tv/users/hdlists/lists/the-top-100-halloween-movies-of-all-time?sort=rank,asc
+      - https://trakt.tv/users/hdlists/lists/halloween-movies-the-best-of-all-time?sort=rank,asc
+
+  Mothers Day ‍:
+    template: { name: Holiday }
+    visible_home: range(05/25-05/31)
+    visible_shared: range(05/25-05/31)
+    summary: Every Mothers special day.
+    file_poster: config/posters/Mothers Day.png
+    trakt_list:
+      - https://trakt.tv/users/movie-pal/lists/mother-s-day?sort=rank,asc
+      - https://trakt.tv/users/mdm144/lists/mother-s-day?sort=rank,asc
+
+  New Years :
+    template: { name: Holiday }
+    visible_home: range(12/30-01/05)
+    visible_shared: range(12/30-01/05)
+    summary: Happy New Year!
+    file_poster: config/posters/New Year.png
+    trakt_list:
+      - https://trakt.tv/users/gullibletransport/lists/new-year?sort=random,asc
+      - https://trakt.tv/users/sympli/lists/new-years-movies?sort=rank,asc
+      - https://trakt.tv/users/padawan_seneca/lists/new-years-eve?sort=rank,asc
+      - https://trakt.tv/users/galacticboy/lists/new-years?sort=rank,asc
+      - https://app.trakt.tv/users/threespoons/lists/new-year-s-movies
+
+  Valentines Day :
+    template: { name: Holiday }
+    visible_home: range(02/14-02/15)
+    visible_shared: range(02/14-02/15)
+    summary: Love me tender, love me sweet.
+    file_poster: config/posters/Valentines Day.png
+    trakt_list:
+      - https://trakt.tv/users/movie-pal/lists/valentine-s-day
+      - https://trakt.tv/users/barsaky/lists/den-svateho-valentina-valentine-s-day
+      - https://trakt.tv/users/abbelea/lists/movies-best-of-love

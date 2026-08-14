@@ -31,6 +31,18 @@ libraries:
   Movies:
     template_variables:
       use_separator: false
+    collection_files:
+    - file: config/umtk/UMTK_MOVIES_UPCOMING_COLLECTION.yml
+    - file: config/umtk/UMTK_MOVIES_TRENDING_COLLECTION.yml
+    - file: config/3-Movies.yml
+    - file: config/3-Movies_Awards.yml
+    - file: config/3-Movies_Franchises.yml
+    - file: config/3-Movies_Genres.yml
+    - file: config/3-Movies_Holidays.yml
+    - file: config/3-Movies_People.yml
+    - file: config/3-Movies_Separators.yml
+    - file: config/3-Movies_Specials.yml
+    - file: config/3-Movies_Studios.yml
     overlay_files:
     - file: config/3-media_info.yml
     - file: config/umtk/UMTK_MOVIES_UPCOMING_OVERLAYS.yml
@@ -40,6 +52,24 @@ libraries:
 
   Shows:
     reapply_overlays: true
+    collection_files:
+    - file: config/umtk/UMTK_TV_TRENDING_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SHOW_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_STARTED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_EPISODE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_FINALE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_SEASON_FINALE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_FINAL_EPISODE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_CANCELED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_ENDED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_RETURNING_COLLECTION.yml
+    - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_COLLECTION.yml
+    - file: config/7-TV.yml
+    - file: config/7-TV_Awards.yml
+    - file: config/7-TV_Genres.yml
+    - file: config/7-TV_Specials.yml
+    - file: config/3-Movies_Studios.yml
     overlay_files:
     - file: config/3-media_info_shows.yml
     - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_OVERLAYS.yml
@@ -73,6 +103,22 @@ libraries:
 
   Anime:
     reapply_overlays: true
+    collection_files:
+    - file: config/umtk/UMTK_TV_TRENDING_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SHOW_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_STARTED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_EPISODE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_FINALE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_SEASON_FINALE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_FINAL_EPISODE_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_CANCELED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_ENDED_COLLECTION.yml
+    - file: config/umtk/TSSK_TV_RETURNING_COLLECTION.yml
+    - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_COLLECTION.yml
+    - file: config/1-Anime.yml
+    - file: config/1-Anime_Genres.yml
+    - file: config/1-Anime_Years.yml
     overlay_files:
     - file: config/3-media_info_shows.yml
     - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_OVERLAYS.yml
