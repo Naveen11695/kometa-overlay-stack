@@ -1,29 +1,49 @@
-# Kometa Overlay Stack
+# 🎬 Kometa Overlay Stack
 
-Complete Plex overlay pipeline: **posterizarr → UMTK → animetafill → Kometa → imageMaid**.
+> **Your Plex library, dressed to impress.**  
+> A complete overlay pipeline — **posterizarr → UMTK → animetafill → Kometa → imageMaid** — with production-accurate configs, assets, and docs in one place.
 
 This single repo replaces the deprecated [kometa-overlay-configs](https://github.com/Naveen11695/kometa-overlay-configs) and [kometa-overlay-assets](https://github.com/Naveen11695/kometa-overlay-assets) repos with production-accurate YAML, image assets, UMTK snapshots (overlays + collections), Docker compose templates, and full pipeline documentation.
 
-## Table of Contents
+---
 
-- [Architecture](#architecture)
-- [Screenshots](#screenshots)
-- [Overlay Anatomy](#overlay-anatomy)
-- [Anime Poster Anatomy](#anime-poster-anatomy)
-- [Episode Title Card Anatomy](#episode-title-card-anatomy)
-- [Anime Episode Title Card Anatomy](#anime-episode-title-card-anatomy)
-- [Collections](#collections)
-- [Sources & Credits](#sources--credits)
-- [What's customized vs upstream](#whats-customized-vs-upstream)
-- [Prerequisites](#prerequisites)
-- [Setup guide](#setup-guide)
-- [Production overlay wiring](#production-overlay-wiring)
-- [Optional / inactive overlays](#optional--inactive-overlays)
-- [Generated vs static files](#generated-vs-static-files)
-- [Troubleshooting](#troubleshooting)
-- [Security](#security)
+## ✨ What you get
 
-## Architecture
+| 🎁 Deliverable | 📦 What's inside |
+|----------------|------------------|
+| **Overlay configs** | jhn322/jmxd YAML reorganized into `overlays/` — media-info bars, ratings, 4K/HDR badges, network logos |
+| **UMTK snapshots** | 30 generated files (15 overlays + 15 collections) for status ribbons, trending, Coming Soon |
+| **Anime overlays** | Live `animetafill` canon/filler tags + static fallback example |
+| **Collections** | jhn322 chart/genre/franchise YAMLs for **Movies**, **Shows**, and **Anime** |
+| **Docker templates** | Sanitized compose files for Synology `/volume2/docker/` layout |
+| **Docs** | [Pipeline](docs/PIPELINE.md) · [Sources](docs/SOURCES.md) · [Mapping](docs/MAPPING.md) |
+
+---
+
+## 📑 Table of Contents
+
+- [🏗️ Architecture](#️-architecture)
+- [📸 Screenshots](#-screenshots)
+- [🔍 Overlay Anatomy](#-overlay-anatomy)
+- [🎌 Anime Poster Anatomy](#-anime-poster-anatomy)
+- [📺 Episode Title Card Anatomy](#-episode-title-card-anatomy)
+- [🍿 Anime Episode Title Card Anatomy](#-anime-episode-title-card-anatomy)
+- [📚 Collections](#-collections)
+- [🙏 Sources & Credits](#-sources--credits)
+- [🔀 What's customized vs upstream](#-whats-customized-vs-upstream)
+- [📋 Prerequisites](#-prerequisites)
+- [🚀 Setup guide](#-setup-guide)
+- [⚡ Production overlay wiring](#-production-overlay-wiring)
+- [🎛️ Optional / inactive overlays](#️-optional--inactive-overlays)
+- [📂 Generated vs static files](#-generated-vs-static-files)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [🔒 Security](#-security)
+
+---
+
+## 🏗️ Architecture
+
+Five stages, one gorgeous Plex library:
 
 ```mermaid
 flowchart TB
@@ -65,11 +85,13 @@ flowchart TB
     IM -->|"clean stale cache"| Plex
 ```
 
-See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and volume layout.
+> 📖 See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and volume layout.
 
-## Screenshots
+---
 
-### Movies
+## 📸 Screenshots
+
+### 🎬 Movies
 
 4K/HDR badges, NEW ribbon, IMDb ratings, and media-info bar (DIGITAL+, codec, resolution).
 
@@ -77,7 +99,7 @@ See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and vol
   <img src="docs/images/movies-overlays.png" alt="Movie overlays — 4K, HDR, NEW, ratings, DIGITAL+" width="1024">
 </a>
 
-### Shows
+### 📺 Shows
 
 Streaming network logos, RETURNING/ENDED status ribbons, GRAB TO WATCH banner, and ratings.
 
@@ -89,7 +111,7 @@ Streaming network logos, RETURNING/ENDED status ribbons, GRAB TO WATCH banner, a
   <img src="docs/images/tv-streaming-logos.png" alt="Show overlays — Netflix, HBO, Disney+ logos with RETURNING/ENDED" width="1024">
 </a>
 
-### Anime
+### 🎌 Anime
 
 Series-level ratings and ENDED status.
 
@@ -97,7 +119,7 @@ Series-level ratings and ENDED status.
   <img src="docs/images/anime-overlays.png" alt="Anime series overlays — ratings and ENDED status" width="1024">
 </a>
 
-### Anime Episodes
+### 🍿 Anime Episodes
 
 Canon/filler tags, season/episode labels, and per-episode ratings.
 
@@ -105,7 +127,9 @@ Canon/filler tags, season/episode labels, and per-episode ratings.
   <img src="docs/images/anime-episode-overlays.png" alt="Anime episode overlays — CANON tags, season/episode labels, ratings" width="1024">
 </a>
 
-## Overlay Anatomy
+---
+
+## 🔍 Overlay Anatomy
 
 Annotated example of a movie poster with multiple overlays applied (*Lord of the Rings: The Fellowship of the Ring*):
 
@@ -120,13 +144,18 @@ Annotated example of a movie poster with multiple overlays applied (*Lord of the
 | HDR | Bottom-left | HDR dynamic range | `overlays/movies/4k.yml` or `media_info` | [jhn322](https://github.com/jhn322/kometa-config) |
 | 8.9 | Bottom-right | IMDb/audience rating (green = fresh) | `overlays/movies/audience_rating.yml` | jhn322 + user customized |
 
-**What this screenshot shows vs. production wiring**
+<details>
+<summary><strong>📌 What this screenshot shows vs. production wiring</strong></summary>
 
 On this poster, the **4K**, **EXTENDED EDITION**, and **HDR** badges all come from the jmxd **media_info** bar (`config/3-media_info.yml` → `overlays/movies/media_info.yml`), which reads resolution, edition, and HDR from the TRaSH-style filename. The **8.9** score is from the customized audience-rating overlay (`config/3-audience_rating.yml` → `overlays/movies/audience_rating.yml`).
 
-In **production**, Movies does **not** load the standalone `4k.yml` pack (`3.1-Movies_Overlays_4K.yml`). Active overlays are **media_info**, **audience_rating**, **UMTK** (Coming Soon, trending top-10), and **recently_added** (NEW ribbon). See [Production overlay wiring](#production-overlay-wiring). To use the separate jhn322 4K/HDR badge images instead of (or alongside) media_info, add `overlays/movies/4k.yml` to `overlay_files` — see [Optional / inactive overlays](#optional--inactive-overlays).
+In **production**, Movies does **not** load the standalone `4k.yml` pack (`3.1-Movies_Overlays_4K.yml`). Active overlays are **media_info**, **audience_rating**, **UMTK** (Coming Soon, trending top-10), and **recently_added** (NEW ribbon). See [Production overlay wiring](#-production-overlay-wiring). To use the separate jhn322 4K/HDR badge images instead of (or alongside) media_info, add `overlays/movies/4k.yml` to `overlay_files` — see [Optional / inactive overlays](#️-optional--inactive-overlays).
 
-## Anime Poster Anatomy
+</details>
+
+---
+
+## 🎌 Anime Poster Anatomy
 
 Annotated example of an anime series poster with overlays applied (*Jujutsu Kaisen*):
 
@@ -141,11 +170,16 @@ Annotated example of an anime series poster with overlays applied (*Jujutsu Kais
 | RETURNING | Bottom-left | Show status ribbon (orange) | `umtk/TSSK_TV_RETURNING_OVERLAYS.yml` | UMTK generated |
 | 8.5 | Bottom-right | Rating chip (green) | `overlays/movies/audience_rating.yml` (`3-audience_rating.yml`) | [jhn322](https://github.com/jhn322/kometa-config) + customized |
 
-**What this screenshot shows vs. production wiring**
+<details>
+<summary><strong>📌 What this screenshot shows vs. production wiring</strong></summary>
 
-**TSSK-Kabeb** (`config/TSSK-Kabeb.yml`) provides the streaming network logos and badge accents in the top-left. **UMTK** generates status ribbons dynamically — RETURNING, ENDED, NEW, and other TV status overlays are written to `config/umtk/` on each UMTK run (this poster shows the RETURNING ribbon from `TSSK_TV_RETURNING_OVERLAYS.yml`). The **8.5** score comes from the customized audience-rating overlay shared across Shows and Anime libraries. See [Production overlay wiring](#production-overlay-wiring).
+**TSSK-Kabeb** (`config/TSSK-Kabeb.yml`) provides the streaming network logos and badge accents in the top-left. **UMTK** generates status ribbons dynamically — RETURNING, ENDED, NEW, and other TV status overlays are written to `config/umtk/` on each UMTK run (this poster shows the RETURNING ribbon from `TSSK_TV_RETURNING_OVERLAYS.yml`). The **8.5** score comes from the customized audience-rating overlay shared across Shows and Anime libraries. See [Production overlay wiring](#-production-overlay-wiring).
 
-## Episode Title Card Anatomy
+</details>
+
+---
+
+## 📺 Episode Title Card Anatomy
 
 Annotated example of an episode title card with overlays applied (*House of the Dragon* S1E1). The base title card artwork is generated by [posterizarr](https://github.com/fscorrupt/posterizarr); Kometa applies the rating and runtime overlays on top.
 
@@ -160,7 +194,9 @@ Annotated example of an episode title card with overlays applied (*House of the 
 | SEASON 1 • EPISODE 1 | Bottom-center | Episode label | posterizarr title cards or Kometa |
 | 1h 5m | Bottom-right | Runtime | `default: runtimes` (inline in `config.yml`) or `overlays/shared/runtime.yml` |
 
-## Anime Episode Title Card Anatomy
+---
+
+## 🍿 Anime Episode Title Card Anatomy
 
 Annotated example of an anime episode title card with overlays applied (*Jujutsu Kaisen* S1E1). The base title card artwork is generated by [posterizarr](https://github.com/fscorrupt/posterizarr); Kometa applies the rating, runtime, and canon/filler overlays on top.
 
@@ -176,17 +212,22 @@ Annotated example of an anime episode title card with overlays applied (*Jujutsu
 | CANON | Bottom-left | Canon/filler tag (green) | `animetafill/anime_overlays.yml` | [fscorrupt/animetafill](https://github.com/fscorrupt/AniMetaFill) (generated) |
 | 0h 23m | Bottom-right | Runtime | `default: runtimes` in `config.yml` | Kometa built-in |
 
-**What this screenshot shows vs. production wiring**
+<details>
+<summary><strong>📌 What this screenshot shows vs. production wiring</strong></summary>
 
-The **8.0** score comes from the customized episode audience-rating overlay (`config/3-audience_rating_episodes.yml` → `overlays/movies/audience_rating_episodes.yml`). The **✓** watched checkmark is applied by Kometa's built-in watched overlay. **SEASON 1 • EPISODE 1** is rendered by posterizarr title cards, not Kometa. The **CANON** tag is generated by [animetafill](https://github.com/fscorrupt/AniMetaFill), which writes `config/animetafill/anime_overlays.yml` on each run — labels are **CANON**, **FILLER**, or **MIXED** based on SIMKL episode data cross-referenced with Sonarr episode mapping. The **0h 23m** runtime comes from Kometa's `default: runtimes` setting in `config.yml`. See [Production overlay wiring](#production-overlay-wiring) for the Anime library overlay list.
+The **8.0** score comes from the customized episode audience-rating overlay (`config/3-audience_rating_episodes.yml` → `overlays/movies/audience_rating_episodes.yml`). The **✓** watched checkmark is applied by Kometa's built-in watched overlay. **SEASON 1 • EPISODE 1** is rendered by posterizarr title cards, not Kometa. The **CANON** tag is generated by [animetafill](https://github.com/fscorrupt/AniMetaFill), which writes `config/animetafill/anime_overlays.yml` on each run — labels are **CANON**, **FILLER**, or **MIXED** based on SIMKL episode data cross-referenced with Sonarr episode mapping. The **0h 23m** runtime comes from Kometa's `default: runtimes` setting in `config.yml`. See [Production overlay wiring](#-production-overlay-wiring) for the Anime library overlay list.
 
-## Collections
+</details>
+
+---
+
+## 📚 Collections
 
 Kometa collections are separate from overlay badges but part of the full Plex experience. Collection YAML files come from [jhn322/kometa-config](https://github.com/jhn322/kometa-config) and are partially customized in production (chart thresholds, `visible_shared` rotation schedules, Trakt list URLs). Collection poster artwork is generated by [posterizarr](https://github.com/fscorrupt/posterizarr) and stored at `config/posters/` on the Docker host.
 
 This repo ships sanitized collection configs in `collections/` (no credentials). UMTK status/trending collections live in `umtk/collections/`.
 
-### TV / Show collections
+### 📺 TV / Show collections
 
 Genres, streaming services (via `3-Movies_Studios.yml` on the Shows library), UMTK/TSSK status collections, awards, and IMDb/Rotten Tomatoes chart lists. Franchises use Kometa's built-in `pmm: franchise` template (not `7-TV_Franchises.yml`).
 
@@ -205,7 +246,7 @@ Genres, streaming services (via `3-Movies_Studios.yml` on the Shows library), UM
 | `7-TV_Franchises.yml` | TV franchise groupings | In repo only |
 | `7-TV_Networks.yml` | Network-based collections | In repo only |
 
-### Movie collections
+### 🎬 Movie collections
 
 Genres, streaming/studio collections, franchises, IMDb/Trakt/Letterboxd charts, and themed specials.
 
@@ -224,7 +265,7 @@ Genres, streaming/studio collections, franchises, IMDb/Trakt/Letterboxd charts, 
 | `3-Movies_Holidays.yml` | Holiday-themed collections |
 | `3-Movies_Specials.yml` | Curated themes and decade collections |
 
-### Actor collections
+### 🌟 Actor collections
 
 Actor/director collections with custom black-and-white poster artwork from posterizarr (`config/posters/*.jpg`).
 
@@ -234,7 +275,7 @@ Actor/director collections with custom black-and-white poster artwork from poste
 
 Defined in `collections/3-Movies_People.yml`. Each collection uses `file_poster: config/posters/<Name>.jpg` pointing to posterizarr-generated artwork.
 
-### Anime collections
+### 🎌 Anime collections
 
 | File | Contents | Production |
 |------|----------|------------|
@@ -252,7 +293,9 @@ cp -r $STACK/collections/* $CONFIG/
 cp -r $STACK/umtk/collections/* $CONFIG/umtk/
 ```
 
-## Sources & Credits
+---
+
+## 🙏 Sources & Credits
 
 | Project | Repo | What it provides |
 |---------|------|------------------|
@@ -265,11 +308,13 @@ cp -r $STACK/umtk/collections/* $CONFIG/umtk/
 | **UMTK** | [netplexflix/Upcoming-Movies-TV-Shows-for-Kometa](https://github.com/netplexflix/Upcoming-Movies-TV-Shows-for-Kometa) | Status ribbons, trending, Coming Soon (15 overlays + 15 collections) |
 | **TSSK-Kabeb** | [netplexflix/Overlays](https://github.com/netplexflix/Overlays) | Network logos, Kabeb badges, and trending top-10 artwork (remote URLs via UMTK + `TSSK-Kabeb.yml`) |
 
-**Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) Docker container (UMTK manages Kabeb overlays), standalone `/docker/netplexflix`, [quickStartKometa](https://github.com/netplexflix/quickStartKometa).
+> **Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) Docker container (UMTK manages Kabeb overlays), standalone `/docker/netplexflix`, [quickStartKometa](https://github.com/netplexflix/quickStartKometa).
 
 Full attribution table: [docs/SOURCES.md](docs/SOURCES.md)
 
-## What's customized vs upstream
+---
+
+## 🔀 What's customized vs upstream
 
 - **Overlay YAML** — sourced from jhn322/jmxd, reorganized into `overlays/` tree; production uses flat `config/` paths ([mapping](docs/MAPPING.md))
 - **Assets** — jmxd badges and Kabeb trending images bundled in `assets/`; network logos load from [netplexflix/Overlays](https://github.com/netplexflix/Overlays) GitHub raw URLs
@@ -279,37 +324,52 @@ Full attribution table: [docs/SOURCES.md](docs/SOURCES.md)
 - **Anime** — live `animetafill/anime_overlays.yml` in production; static `anime/canon_filler.example.yml` as fallback
 - **Docker** — Synology `/volume2/docker/` volume paths
 
-## Prerequisites
+---
 
-- [Plex Media Server](https://www.plex.tv/) with libraries named **Movies**, **Shows**, **Anime**
-- [Docker](https://www.docker.com/) (Synology Container Manager or Linux)
-- [TMDb API key](https://www.themoviedb.org/settings/api) (free)
-- Plex server URL and [authentication token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)
+## 📋 Prerequisites
 
-**For UMTK:**
+| Requirement | Details |
+|-------------|---------|
+| 🎬 **Plex** | [Plex Media Server](https://www.plex.tv/) with libraries named **Movies**, **Shows**, **Anime** |
+| 🐳 **Docker** | [Docker](https://www.docker.com/) (Synology Container Manager or Linux) |
+| 🔑 **TMDb** | [TMDb API key](https://www.themoviedb.org/settings/api) (free) |
+| 🔐 **Plex token** | Plex server URL and [authentication token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/) |
+
+<details>
+<summary><strong>📡 For UMTK</strong></summary>
 
 - [Sonarr](https://sonarr.tv/) and [Radarr](https://radarr.video/) API keys
 - [MDBList API key](https://mdblist.com/) for trending top-10
 - Media folders for upcoming placeholders (`Upcoming_Movie`, `Upcoming_Shows`)
 
-**For animetafill:**
+</details>
+
+<details>
+<summary><strong>🎌 For animetafill</strong></summary>
 
 - Sonarr API key (recommended for episode mapping)
 - [SIMKL client ID](https://simkl.com/settings/developer/) (free)
 
-**For posterizarr:**
+</details>
+
+<details>
+<summary><strong>🖼️ For posterizarr</strong></summary>
 
 - TMDb, TVDB, Fanart.tv API keys (configured in posterizarr UI)
 
-## Setup guide
+</details>
 
-### 1. Clone the repo
+---
+
+## 🚀 Setup guide
+
+### 1️⃣ Clone the repo
 
 ```bash
 git clone https://github.com/Naveen11695/kometa-overlay-stack.git /tmp/kometa-overlay-stack
 ```
 
-### 2. Create directory layout on Synology
+### 2️⃣ Create directory layout on Synology
 
 ```bash
 # Kometa
@@ -325,7 +385,7 @@ mkdir -p /volume2/docker/imageMaid/config
 mkdir -p /volume1/media/Upcoming_Movie /volume1/media/Upcoming_Shows
 ```
 
-### 3. Copy repo contents into Kometa config
+### 3️⃣ Copy repo contents into Kometa config
 
 ```bash
 STACK=/tmp/kometa-overlay-stack
@@ -354,7 +414,7 @@ ln -sf overlays/shared/recently_added.yml recently_added.yml
 ln -sf overlays/networks/TSSK-Kabeb.yml TSSK-Kabeb.yml
 ```
 
-### 4. Create config.yml
+### 4️⃣ Create config.yml
 
 ```bash
 cp $STACK/config.example.yml $CONFIG/config.yml
@@ -369,13 +429,14 @@ Edit `config.yml` — replace placeholders:
 | `tmdb.apikey` | [TMDb API settings](https://www.themoviedb.org/settings/api) |
 | `mdblist.apikey` | [MDBList](https://mdblist.com/) (for UMTK trending) |
 
-Verify library names are exactly `Movies`, `Shows`, `Anime`.
+> ⚠️ Verify library names are exactly `Movies`, `Shows`, `Anime`.
 
-### 5. Configure and start each Docker service (in order)
+### 5️⃣ Configure and start each Docker service (in order)
 
 Copy compose files from `docker/` and adjust `PUID`, `PGID`, `TZ`, and volume paths.
 
-**5a. posterizarr**
+<details>
+<summary><strong>5a. 🖼️ posterizarr</strong></summary>
 
 ```bash
 cp $STACK/docker/posterizarr.compose.yml /volume2/docker/posterizarr/compose.yaml
@@ -384,7 +445,10 @@ cd /volume2/docker/posterizarr && docker compose up -d
 
 Configure API keys via Web UI at `http://YOUR_HOST:8219`.
 
-**5b. UMTK**
+</details>
+
+<details>
+<summary><strong>5b. 📡 UMTK</strong></summary>
 
 ```bash
 cp $STACK/docker/umtk.compose.yml /volume2/docker/UMTK/compose.yaml
@@ -408,7 +472,10 @@ cd /volume2/docker/UMTK && docker compose up -d
 
 Wait for first run (Web UI at `:2120`) — confirms 30 files in `kometa/config/umtk/`.
 
-**5c. animetafill**
+</details>
+
+<details>
+<summary><strong>5c. 🎌 animetafill</strong></summary>
 
 ```bash
 cp $STACK/docker/animetafill.compose.yml /volume2/docker/animetafill/compose.yaml
@@ -436,7 +503,10 @@ kometa:
 cd /volume2/docker/animetafill && docker compose up -d
 ```
 
-**5d. Kometa**
+</details>
+
+<details>
+<summary><strong>5d. ⚙️ Kometa</strong></summary>
 
 ```bash
 cp $STACK/docker/kometa.compose.yml /volume2/docker/kometa/docker-compose.yml
@@ -445,7 +515,10 @@ cd /volume2/docker/kometa && docker compose up -d
 
 First run: `docker compose run --rm kometa`
 
-**5e. imageMaid**
+</details>
+
+<details>
+<summary><strong>5e. 🧹 imageMaid</strong></summary>
 
 ```bash
 cp $STACK/docker/imagemaid.compose.yml /volume2/docker/imageMaid/compose.yaml
@@ -469,11 +542,15 @@ OPTIMIZE_DB=True
 cd /volume2/docker/imageMaid && docker compose up -d
 ```
 
-## Production overlay wiring
+</details>
+
+---
+
+## ⚡ Production overlay wiring
 
 Active `overlay_files` per library (from live production `config.yml`):
 
-### Movies
+### 🎬 Movies
 
 | Overlay | Path |
 |---------|------|
@@ -483,7 +560,7 @@ Active `overlay_files` per library (from live production `config.yml`):
 | Audience rating | `config/3-audience_rating.yml` |
 | Recently added (NEW) | `config/recently_added.yml` |
 
-### Shows
+### 📺 Shows
 
 | Overlay | Path |
 |---------|------|
@@ -505,7 +582,7 @@ Active `overlay_files` per library (from live production `config.yml`):
 | Audience rating (episodes) | `config/3-audience_rating_episodes.yml` |
 | Episode runtime | `default: runtimes` |
 
-### Anime
+### 🎌 Anime
 
 Same as Shows, except:
 
@@ -515,7 +592,9 @@ Same as Shows, except:
 
 Repo tree equivalents: [docs/MAPPING.md](docs/MAPPING.md)
 
-## Optional / inactive overlays
+---
+
+## 🎛️ Optional / inactive overlays
 
 Available in `overlays/` but not active in production:
 
@@ -528,7 +607,9 @@ Available in `overlays/` but not active in production:
 
 To enable, add the corresponding path to `overlay_files` in `config.yml`. See [docs/MAPPING.md](docs/MAPPING.md) for flat ↔ tree paths.
 
-## Generated vs static files
+---
+
+## 📂 Generated vs static files
 
 | File / folder | Type | Updated by |
 |---------------|------|------------|
@@ -541,7 +622,9 @@ To enable, add the corresponding path to `overlay_files` in `config.yml`. See [d
 | `config/posters/` | Generated | posterizarr |
 | `anime/canon_filler.example.yml` | Static snapshot | Manual only (fallback if animetafill not used) |
 
-## Troubleshooting
+---
+
+## 🔧 Troubleshooting
 
 ### Overlays not showing in Plex
 
@@ -589,7 +672,9 @@ ls config/overlays/fonts/
 | Sonarr/Radarr errors (UMTK) | Add API keys to UMTK config |
 | MDBList trending empty | Verify `mdblist_api_key` in UMTK config |
 
-## Security
+---
+
+## 🔒 Security
 
 This repo contains **no credentials**. Never commit:
 
@@ -599,7 +684,9 @@ This repo contains **no credentials**. Never commit:
 
 The `.gitignore` excludes `config.yml`, `*.env`, logs, cache, and runtime asset directories. Store secrets only on your Docker host.
 
-## Repo structure
+---
+
+## 📁 Repo structure
 
 ```
 kometa-overlay-stack/
@@ -621,6 +708,8 @@ kometa-overlay-stack/
 └── assets/               # PNG badges, fonts, sprites
 ```
 
-## License
+---
+
+## 📜 License
 
 Overlay configs and assets are derived from upstream community projects — see [docs/SOURCES.md](docs/SOURCES.md) for attribution. Kometa is licensed under the MIT License.

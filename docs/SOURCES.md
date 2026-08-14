@@ -1,4 +1,4 @@
-# Sources & Credits
+# 🙏 Sources & Credits
 
 Accurate attribution for all projects in this overlay stack.
 
