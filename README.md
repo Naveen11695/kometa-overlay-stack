@@ -74,8 +74,7 @@ See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and vol
 4K/HDR badges, NEW ribbon, IMDb ratings, and media-info bar (DIGITAL+, codec, resolution).
 
 <a href="docs/images/movies-overlays.png">
-    <img width="1622" height="662" alt="Screenshot 2026-08-14 at 12 37 30 PM" src="https://github.com/user-attachments/assets/7e06f283-db2e-4703-ac05-303f394da89b" alt="Movie overlays — 4K, HDR, NEW, ratings, DIGITAL+" />
-
+    <img width="1778" height="1007" alt="Screenshot 2026-08-14 at 2 12 16 PM" src="https://github.com/user-attachments/assets/9ff853bf-8244-41e8-a216-bef168d2932a" />
 </a>
 
 ### Shows
