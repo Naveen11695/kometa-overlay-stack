@@ -102,12 +102,12 @@ Annotated example of a movie poster with multiple overlays applied (*Lord of the
 
 ![Movie overlay anatomy — 4K, Extended Edition, HDR, rating](docs/images/movie-overlay-explainer.png)
 
-| Position | Overlay | Config file | Upstream |
-|----------|---------|-------------|----------|
-| Top-left | 4K | `overlays/movies/4k.yml` (or `3.1-Movies_Overlays_4K.yml`) | [jhn322/kometa-config](https://github.com/jhn322/kometa-config) |
-| Top-center | EXTENDED EDITION | `overlays/movies/media_info.yml` | [jmxd/Kometa](https://github.com/jmxd/Kometa) |
-| Bottom-left | HDR | `overlays/movies/4k.yml` | [jhn322/kometa-config](https://github.com/jhn322/kometa-config) |
-| Bottom-right | 8.9 rating | `overlays/movies/audience_rating.yml` | jhn322 + customized |
+| Badge | Location | What it shows | Config file | Source |
+|-------|----------|---------------|-------------|--------|
+| 4K | Top-left | 4K/UHD resolution | `overlays/movies/4k.yml` **or** active: `media_info` detects from filename | [jhn322](https://github.com/jhn322/kometa-config) / [jmxd](https://github.com/jmxd/Kometa) |
+| EXTENDED EDITION | Top-center | Edition type from filename | `overlays/movies/media_info.yml` | [jmxd/Kometa](https://github.com/jmxd/Kometa) |
+| HDR | Bottom-left | HDR dynamic range | `overlays/movies/4k.yml` or `media_info` | [jhn322](https://github.com/jhn322/kometa-config) |
+| 8.9 | Bottom-right | IMDb/audience rating (green = fresh) | `overlays/movies/audience_rating.yml` | jhn322 + user customized |
 
 **What this screenshot shows vs. production wiring**
 
