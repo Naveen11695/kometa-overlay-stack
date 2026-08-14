@@ -1,0 +1,53 @@
+overlays:
+  backdrop_upcoming_episode:
+    overlay:
+      back_color: '#0065808C'
+      weight: 50
+      back_height: 90
+      back_width: 710
+      horizontal_offset: 60
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#FFFFFF'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+    tvdb_show: 74796, 383203, 403245
+  TSSK_TOMORROW:
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 80
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(NEW EPISODE TOMORROW)
+    tvdb_show: '74796'
+  TSSK_WEDNESDAY:
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 80
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(NEW EPISODE WEDNESDAY)
+    tvdb_show: '383203'
+  TSSK_FRI 21/08:
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 80
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(NEW EPISODE FRI 21/08)
+    tvdb_show: '403245'

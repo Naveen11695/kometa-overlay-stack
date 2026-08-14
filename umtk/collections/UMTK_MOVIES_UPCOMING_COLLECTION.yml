@@ -1,0 +1,8 @@
+collections:
+  Coming Soon:
+    summary: Movies releasing within 30 days or already released but not yet available
+    build_collection: true
+    item_label: Coming Soon
+    non_item_remove_label: Coming Soon
+    sync_mode: sync
+    tmdb_movie: '1084244'

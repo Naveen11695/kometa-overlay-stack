@@ -1,0 +1,5 @@
+collections:
+  New Shows:
+    plex_all: true
+    item_label.remove: New Shows
+    build_collection: false

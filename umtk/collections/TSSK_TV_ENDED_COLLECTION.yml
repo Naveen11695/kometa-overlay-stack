@@ -1,0 +1,11 @@
+collections:
+  Ended Shows:
+    summary: Shows that have ended
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: EndedShows
+    non_item_remove_label: EndedShows
+    plex_all: true
+    filters:
+      tvdb_status: ended

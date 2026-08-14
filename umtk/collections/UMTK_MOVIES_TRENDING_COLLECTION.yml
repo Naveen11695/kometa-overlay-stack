@@ -1,0 +1,14 @@
+collections:
+  Top 10 - Movies:
+    sync_mode: append
+    item_label: UMTKTrending
+    non_item_remove_label: UMTKTrending
+    show_missing: 'true'
+    tmdb_movie: 969681, 950028, 1315772, 1284041, 1368337, 1081003, 1339713, 1612018,
+      1275779, 1212763
+  RequestNeededMovies:
+    item_label: RequestNeeded
+    non_item_remove_label: RequestNeeded
+    build_collection: false
+    sync_mode: append
+    tmdb_movie: 950028, 1315772, 1284041, 1612018, 1275779

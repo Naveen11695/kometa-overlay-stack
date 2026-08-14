@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  kometa:
+    image: kometateam/kometa:latest
+    container_name: kometa
+    hostname: kometa
+    environment:
+      - PUID=1000                  # Adjust: run `id -u` on your host
+      - PGID=1000                  # Adjust: run `id -g` on your host
+      - TZ=Your/Timezone
+      - KOMETA_TIMES=00:00,04:00,08:00,12:00,16:00,20:00
+      - KOMETA_LOG_LEVEL=info
+      - KOMETA_CONFIG=/config/config.yml
+    volumes:
+      - /volume2/docker/kometa/config:/config
+      - /volume2/docker/kometa/config/logs:/logs
+    restart: unless-stopped
+    networks:
+      - kometa_net
+
+networks:
+  kometa_net:
+    driver: bridge

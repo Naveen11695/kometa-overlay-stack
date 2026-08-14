@@ -1,0 +1,9 @@
+collections:
+  Upcoming Episode:
+    summary: Shows with an upcoming episode within 31 days
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: UpcomingEpisode
+    non_item_remove_label: UpcomingEpisode
+    tvdb_show: 74796, 383203, 403245

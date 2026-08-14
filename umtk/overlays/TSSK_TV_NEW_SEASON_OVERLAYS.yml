@@ -1,0 +1,29 @@
+overlays:
+  backdrop_new_season:
+    overlay:
+      back_color: '#228B228C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#FFFFFF'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+    tvdb_show: '393159'
+  TSSK_FRI 28 AUG_S2:
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(SEASON 2 FRI 28 AUG)
+    tvdb_show: '393159'

@@ -1,0 +1,14 @@
+services:
+  animetafill:
+    hostname: animetafill
+    container_name: animetafill
+    environment:
+      - TZ=Your/Timezone
+    user: "1000:1000"   # Adjust PUID:PGID
+    image: ghcr.io/fscorrupt/animetafill:latest
+    restart: unless-stopped
+    volumes:
+      - /volume2/docker/animetafill/config.yml:/app/config.yml:ro
+      - /volume2/docker/animetafill/data:/data:rw
+      - /volume2/docker/kometa/config/animetafill:/data/kometa_overlays:rw
+      - /volume2/docker/animetafill/logs:/app/logs:rw

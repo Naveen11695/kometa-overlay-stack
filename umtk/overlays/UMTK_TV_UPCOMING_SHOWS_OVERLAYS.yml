@@ -1,0 +1,58 @@
+overlays:
+  backdrop_aired:
+    overlay:
+      back_color: '#004c4c8C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#FFFFFF'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+    tvdb_show: 354808, 368316, 375921, 392499, 415307
+  UMTK_aired:
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      back_radius: '12'
+      group: TSSK_text
+      name: text(ON THE WAY)
+    tvdb_show: 354808, 368316, 375921, 392499, 415307
+  backdrop_trending_request_tvdb:
+    overlay:
+      back_color: '#FFFFFF8C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#000000'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+    tvdb_show: 366924, 388589, 421070, 457730, 459552, 465664, 468000
+  UMTK_trending_request_tvdb:
+    overlay:
+      font_color: '#000000'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(GRAB TO WATCH)
+    tvdb_show: 366924, 388589, 421070, 457730, 459552, 465664, 468000

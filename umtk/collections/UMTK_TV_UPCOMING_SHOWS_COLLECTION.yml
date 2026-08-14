@@ -1,0 +1,9 @@
+collections:
+  Coming Soon:
+    summary: Shows with their first episode premiering within 30 days or already aired
+      but not yet available
+    build_collection: false
+    item_label: Coming Soon
+    non_item_remove_label: Coming Soon
+    sync_mode: sync
+    tvdb_show: 354808, 368316, 375921, 392499, 415307

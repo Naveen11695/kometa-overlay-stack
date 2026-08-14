@@ -1,0 +1,127 @@
+# Example Kometa config — copy to config/config.yml on your Docker host.
+# Never commit config.yml with real credentials.
+#
+# Library names must match Plex exactly: Movies, Shows, Anime
+#
+# Path styles:
+#   Production (jhn322 flat):  file: config/3-media_info.yml
+#   Repo tree layout:          file: overlays/movies/media_info.yml
+# See docs/MAPPING.md for the full flat ↔ tree mapping.
+
+plex:
+  url: http://YOUR_PLEX_IP:32400
+  token: YOUR_PLEX_TOKEN
+  timeout: 60
+  db_cache: 500
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+  verify_ssl: false
+
+tmdb:
+  apikey: YOUR_TMDB_API_KEY
+  language: en
+  cache_expiration: 60
+
+mdblist:
+  apikey: YOUR_MDBLIST_API_KEY
+  cache_expiration: 60
+
+libraries:
+  Movies:
+    template_variables:
+      use_separator: false
+    overlay_files:
+    - file: config/3-media_info.yml
+    - file: config/umtk/UMTK_MOVIES_UPCOMING_OVERLAYS.yml
+    - file: config/umtk/UMTK_MOVIES_TOP10_OVERLAYS.yml
+    - file: config/3-audience_rating.yml
+    - file: config/recently_added.yml
+
+  Shows:
+    reapply_overlays: true
+    overlay_files:
+    - file: config/3-media_info_shows.yml
+    - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_OVERLAYS.yml
+    - file: config/umtk/UMTK_TV_TOP10_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_EPISODE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_FINALE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_CANCELED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_ENDED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_RETURNING_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_SEASON_FINALE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_FINAL_EPISODE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_STARTED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SHOW_OVERLAYS.yml
+    - file: config/TSSK-Kabeb.yml
+    - file: config/3-audience_rating.yml
+    - file: config/3-audience_rating_episodes.yml
+    - default: runtimes
+      template_variables:
+        builder_level: episode
+        text: ''
+        font: config/overlays/fonts/AvenirNextLTPro-Bold.ttf
+        font_size: 70
+        back_width: 300
+        horizontal_align: right
+        vertical_offset: 50
+        horizontal_offset: 70
+        vertical_align: bottom
+        vertical_position: top
+        horizontal_position: right
+
+  Anime:
+    reapply_overlays: true
+    overlay_files:
+    - file: config/3-media_info_shows.yml
+    - file: config/umtk/UMTK_TV_UPCOMING_SHOWS_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_EPISODE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_UPCOMING_FINALE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_CANCELED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_ENDED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_RETURNING_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_SEASON_FINALE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_FINAL_EPISODE_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SEASON_STARTED_OVERLAYS.yml
+    - file: config/umtk/TSSK_TV_NEW_SHOW_OVERLAYS.yml
+    - file: config/TSSK-Kabeb.yml
+    - file: config/3-audience_rating.yml
+    - file: config/3-audience_rating_episodes.yml
+    - file: config/animetafill/anime_overlays.yml
+    - default: runtimes
+      template_variables:
+        builder_level: episode
+        text: ''
+        font: config/overlays/fonts/AvenirNextLTPro-Bold.ttf
+        font_size: 70
+        back_width: 300
+        horizontal_align: right
+        vertical_offset: 50
+        horizontal_offset: 70
+        vertical_align: bottom
+        vertical_position: top
+        horizontal_position: right
+
+settings:
+  cache: true
+  cache_expiration: 60
+  asset_directory:
+  - config/assets
+  - config/assets/Movies
+  - config/assets/Shows
+  asset_folders: true
+  asset_depth: 2
+  create_asset_folders: true
+  prioritize_assets: true
+  download_url_assets: true
+  sync_mode: append
+  minimum_items: 1
+  overlay_artwork_quality: 90
+  overlay_artwork_filetype: webp_lossy
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays

@@ -1,0 +1,59 @@
+overlays:
+  backdrop_future:
+    overlay:
+      file: config/overlays/Tallinex_overlay.png
+      name: comingsoon_movies_future
+    tmdb_movie: '1084244'
+  UMTK_future_TUESDAY:
+    overlay:
+      font_color: '#FFFFFF'
+      font_size: 80
+      horizontal_offset: 30
+      vertical_offset: 380
+      horizontal_align: center
+      vertical_align: top
+      name: text( TUESDAY)
+    tmdb_movie: '1084244'
+  backdrop_trending_monitored:
+    overlay:
+      file: config/overlays/Tallinex_overlay.png
+      name: comingsoon_movies_released
+    tmdb_movie: 969681, 1368337
+  UMTK_trending_monitored:
+    overlay:
+      font_color: '#FFFFFF'
+      font_size: 80
+      horizontal_offset: 30
+      vertical_offset: 380
+      horizontal_align: center
+      vertical_align: top
+      name: text(In Cinemas)
+    tmdb_movie: 969681, 1368337
+  backdrop_trending_request:
+    overlay:
+      back_color: '#FFFFFF8C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#000000'
+      back_radius: '12'
+      group: UMTK_backdrop
+      name: backdrop
+    tmdb_movie: 950028, 1275779, 1284041, 1315772, 1612018
+  UMTK_trending_request:
+    overlay:
+      font_color: '#000000'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: UMTK_text
+      name: text(GRAB TO WATCH)
+    tmdb_movie: 950028, 1275779, 1284041, 1315772, 1612018

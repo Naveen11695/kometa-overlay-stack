@@ -1,0 +1,33 @@
+overlays:
+  backdrop_ended:
+    plex_all: true
+    filters:
+      tvdb_status: ended
+    overlay:
+      back_color: '#0000008C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#00ff3d'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+  ended_show:
+    plex_all: true
+    filters:
+      tvdb_status: ended
+    overlay:
+      font_color: '#00ff3d'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text( E N D E D)

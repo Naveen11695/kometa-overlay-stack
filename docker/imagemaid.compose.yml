@@ -1,0 +1,20 @@
+services:
+  imagemaid:
+    image: kometateam/imagemaid
+    container_name: imagemaid
+    environment:
+      - TZ=Your/Timezone
+      # Create /volume2/docker/imageMaid/config/.env with:
+      #   MODE=remove
+      #   PLEX_URL=http://YOUR_PLEX_IP:32400
+      #   PLEX_TOKEN=YOUR_PLEX_TOKEN
+      #   SCHEDULE=04:30|weekly(sunday)|mode=clear
+      #   TIMEOUT=600
+      #   SLEEP=60
+      #   EMPTY_TRASH=True
+      #   CLEAN_BUNDLES=True
+      #   OPTIMIZE_DB=True
+    volumes:
+      - /volume2/docker/imageMaid/config:/config
+      - /volume2/docker/plexmediaserver/config/Library/Application Support/Plex Media Server:/plex
+    restart: unless-stopped

@@ -1,0 +1,16 @@
+# Personal poster backups
+**/Original Posters/
+
+# Synology junk
+@eaDir/
+.DS_Store
+#recycle/
+#snapshot/
+
+# Temp files
+temp.webp
+*.tmp
+
+# IDE
+.idea/
+.vscode/

@@ -1,0 +1,153 @@
+#Last updated: 2026-08-14
+overlays:
+  backdrop_trending_top_10_up:
+    overlay:
+      weight: 2000
+      group: TRENDING
+      name: top10up
+      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+    tmdb_movie: 950028, 1315772, 1081003
+  backdrop_trending_top_10_equal:
+    overlay:
+      weight: 2000
+      group: TRENDING
+      name: top10equal
+      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+    tmdb_movie: 969681, 1368337, 1339713, 1275779, 1212763
+  backdrop_trending_top_10_down:
+    overlay:
+      weight: 2000
+      group: TRENDING
+      name: top10down
+      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+    tmdb_movie: 1284041, 1612018
+  trending_top10_1:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(1)
+    tmdb_movie: '969681'
+  trending_top10_2:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(2)
+    tmdb_movie: '950028'
+  trending_top10_3:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(3)
+    tmdb_movie: '1315772'
+  trending_top10_4:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(4)
+    tmdb_movie: '1284041'
+  trending_top10_5:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(5)
+    tmdb_movie: '1368337'
+  trending_top10_6:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(6)
+    tmdb_movie: '1081003'
+  trending_top10_7:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(7)
+    tmdb_movie: '1339713'
+  trending_top10_8:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(8)
+    tmdb_movie: '1612018'
+  trending_top10_9:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(9)
+    tmdb_movie: '1275779'
+  trending_top10_10:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -400
+      vertical_offset: 275
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(10)
+    tmdb_movie: '1212763'

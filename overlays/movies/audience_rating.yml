@@ -1,0 +1,81 @@
+external_templates:
+  default: templates
+
+templates:
+  audience_score:
+    default:
+      horizontal_offset: 60
+      horizontal_align: right
+      vertical_offset: 60
+      vertical_align: bottom
+      # Compact frosted chip: center the score in the backdrop so height isn’t mostly empty space.
+      back_color: '#0a0a0aB0'
+      back_width: 150
+      back_height: 68
+      back_padding: 8
+      back_radius: 12
+      back_align: center
+      back_line_color: '#FFFFFF8C'
+      back_line_width: 2
+    optional:
+      - builder_level
+    plex_all: true
+    filters:
+      audience_rating.gte: <<audience_rating.gte>>
+    builder_level: <<builder_level>>
+    overlay:
+      name: text(<<audience_rating>>)
+      group: <<group>>
+      weight: <<weight>>
+      horizontal_offset: <<horizontal_offset>>
+      horizontal_align: <<horizontal_align>>
+      vertical_offset: <<vertical_offset>>
+      vertical_align: <<vertical_align>>
+      back_color: <<back_color>>
+      back_width: <<back_width>>
+      back_height: <<back_height>>
+      back_padding: <<back_padding>>
+      back_radius: <<back_radius>>
+      back_align: <<back_align>>
+      back_line_color: <<back_line_color>>
+      back_line_width: <<back_line_width>>
+      font_color: <<font_color>>
+      stroke_color: <<stroke_color>>
+      stroke_width: <<stroke_width>>
+      font: config/overlays/fonts/AvenirNextLTPro-Bold.ttf
+      font_size: <<font_size>>
+
+overlays:
+  audience_score_high:
+    variables:
+      key: audience_score_high
+      weight: 500
+      group: score
+      audience_rating.gte: 8.0
+      font_color: '#2ECC71'
+      stroke_color: '#0d0d0d'
+      stroke_width: '1'
+      font_size: 78
+    template: [ name: audience_score ]
+  audience_score_mid:
+    variables:
+      key: audience_score_mid
+      weight: 400
+      group: score
+      audience_rating.gte: 6.0
+      font_color: '#F1C40F'
+      stroke_color: '#0d0d0d'
+      stroke_width: '1'
+      font_size: 78
+    template: [ name: audience_score ]
+  audience_score_low:
+    variables:
+      key: audience_score_low
+      weight: 300
+      group: score
+      audience_rating.gte: 0
+      font_color: '#E74C3C'
+      stroke_color: '#0d0d0d'
+      stroke_width: '1'
+      font_size: 78
+    template: [ name: audience_score ]

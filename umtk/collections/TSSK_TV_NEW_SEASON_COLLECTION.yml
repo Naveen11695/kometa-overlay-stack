@@ -1,0 +1,9 @@
+collections:
+  New Season Soon:
+    summary: Shows with a new season starting within 31 days
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: NewSeasonSoon
+    non_item_remove_label: NewSeasonSoon
+    tvdb_show: '393159'

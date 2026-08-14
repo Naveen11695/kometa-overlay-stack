@@ -1,0 +1,39 @@
+# Secrets & credentials
+config.yml
+config.local.yml
+*.env
+.secret_key
+yes
+yes.pub
+*.pem
+*.key
+
+# Runtime / cache
+config.cache
+config.cache-*
+*.log
+logs/
+anidb_cache/
+UUID
+
+# Personal library data (runtime — posterizarr writes here)
+metadata/
+assets/Movies/
+assets/Shows/
+assets/Anime/
+posters/
+**/Original Posters/
+
+# Live generated output on Docker host (not in this repo)
+# animetafill writes: kometa/config/animetafill/anime_overlays.yml
+# UMTK writes:         kometa/config/umtk/*.yml
+
+# Synology junk
+@eaDir/
+.DS_Store
+#recycle/
+#snapshot/
+
+# IDE
+.idea/
+.vscode/

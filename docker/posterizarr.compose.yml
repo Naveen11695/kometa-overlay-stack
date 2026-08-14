@@ -1,0 +1,25 @@
+services:
+  posterizarr:
+    image: ghcr.io/fscorrupt/posterizarr:latest
+    container_name: posterizarr
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 8219 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    user: 1000:1000   # Adjust PUID:PGID
+    environment:
+      TZ: Your/Timezone
+      TERM: xterm
+      RUN_TIME: disabled
+      APP_PORT: 8219
+      DISABLE_UI: false
+    ports:
+      - 8219:8219
+    volumes:
+      - /volume2/docker/posterizarr/config:/config:rw
+      - /volume2/docker/kometa/config/assets:/assets:rw
+      - /volume2/docker/posterizarr/assetsbackup:/assetsbackup:rw
+      - /volume2/docker/posterizarr/manualassets:/manualassets:rw
+    restart: on-failure:5

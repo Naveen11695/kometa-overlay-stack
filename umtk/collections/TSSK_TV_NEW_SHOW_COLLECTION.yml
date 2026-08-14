@@ -1,0 +1,12 @@
+collections:
+  New This Week:
+    summary: New Shows added in the past 7 days
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: NewShow
+    non_item_remove_label: NewShow
+    plex_all: true
+    filters:
+      added: 7
+      label.not: Coming Soon

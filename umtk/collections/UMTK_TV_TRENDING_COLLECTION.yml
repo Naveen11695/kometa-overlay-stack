@@ -1,0 +1,14 @@
+collections:
+  Top 10 - Shows:
+    sync_mode: append
+    item_label: UMTKTrending
+    non_item_remove_label: UMTKTrending
+    show_missing: 'true'
+    tvdb_show: 371572, 383203, 459552, 403245, 468000, 388589, 457730, 421070, 465664,
+      366924
+  RequestNeededTV:
+    item_label: RequestNeeded
+    non_item_remove_label: RequestNeeded
+    build_collection: false
+    sync_mode: append
+    tvdb_show: 459552, 468000, 388589, 457730, 421070, 465664, 366924

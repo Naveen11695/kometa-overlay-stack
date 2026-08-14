@@ -1,0 +1,50 @@
+overlays:
+  # ---- MOVIES LIBRARY ----
+  Recently Added (Movies):
+    run_definition: movie
+    plex_all: true
+    filters:
+      added: 7
+    overlay:
+      name: Recently Added
+      file: config/overlays/NEW.png
+
+
+  # ---- TV LIBRARY ----
+  # Show gets overlay if it has any newly added episode
+  Recently Added (Show):
+    run_definition: show
+    plex_all: true
+    filters:
+      episodes:
+        percentage: 1
+        added: 7
+    overlay:
+      name: Recently Added
+      file: config/overlays/NEW.png
+
+
+  # Season gets overlay if that season has any newly added episode
+  Recently Added (Seasons):
+    run_definition: show
+    builder_level: season
+    plex_all: true
+    filters:
+      episodes:
+        percentage: 1
+        added: 7
+    overlay:
+      name: Recently Added
+      file: config/overlays/NEW.png
+
+
+  # Individual newly added episodes
+  #Recently Added (Episodes):
+  #  run_definition: show
+  #  builder_level: episode
+  #  plex_all: true
+  #  filters:
+  #    added: 10
+  #  overlay:
+  #    name: Recently Added
+  #    file: config/overlays/recently_added_episode.png

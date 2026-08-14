@@ -1,0 +1,35 @@
+overlays:
+  runtime_overlay:
+    template:
+      name: runtime_display
+    plex_all: true
+
+templates:
+  runtime_display:
+    conditionals:
+      # Case 1: Only hours (minutes = 0)
+      - condition: runtime >= 60 and runtime % 60 == 0
+        overlay:
+          name: text(<<math(runtime/60)>>h)
+          font_color: "#FFFFFF"
+          font_size: 50
+          horizontal_align: right
+          vertical_align: bottom
+
+      # Case 2: Only minutes (under 1 hour)
+      - condition: runtime < 60
+        overlay:
+          name: text(<<runtime>>m)
+          font_color: "#FFFFFF"
+          font_size: 50
+          horizontal_align: right
+          vertical_align: bottom
+
+      # Case 3: Hours + Minutes
+      - condition: runtime >= 60 and runtime % 60 != 0
+        overlay:
+          name: text(<<math(runtime/60)>>h <<math(runtime%60)>>m)
+          font_color: "#FFFFFF"
+          font_size: 50
+          horizontal_align: right
+          vertical_align: bottom

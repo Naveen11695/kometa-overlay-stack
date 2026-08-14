@@ -1,0 +1,9 @@
+collections:
+  Season Finale:
+    summary: Shows with a season finale that aired within the past 7 days
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: SeasonFinale
+    non_item_remove_label: SeasonFinale
+    tvdb_show: '371572'

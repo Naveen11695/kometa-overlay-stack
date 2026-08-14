@@ -1,0 +1,28 @@
+services:
+  umtk:
+    image: netplexflix/umtk:latest
+    container_name: umtk
+    ports:
+      - "2120:2120"   # Web UI
+    hostname: umtk
+    environment:
+      - CRON=0 */3 * * *
+      - DOCKER=true
+      - TZ=Your/Timezone
+      - PUID=1000
+      - PGID=1000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /volume2/docker/UMTK/config:/app/config
+      - /volume2/docker/UMTK/video:/video
+      - /volume2/docker/kometa/config/umtk:/app/kometa
+      - /volume1/media/Upcoming_Movie:/umtkmovies
+      - /volume1/media/Upcoming_Shows:/umtktv
+    restart: unless-stopped
+    networks:
+      - umtk_net
+
+networks:
+  umtk_net:
+    driver: bridge

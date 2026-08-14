@@ -1,0 +1,35 @@
+overlays:
+  backdrop_new_show:
+    plex_all: true
+    filters:
+      added: 7
+      label.not: Coming Soon, RequestNeeded
+    overlay:
+      back_color: '#8000008C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#FFFFFF'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+  new_show:
+    plex_all: true
+    filters:
+      added: 7
+      label.not: Coming Soon, RequestNeeded
+    overlay:
+      font_color: '#FFFFFF'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(New This Week)

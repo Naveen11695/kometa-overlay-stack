@@ -1,0 +1,29 @@
+overlays:
+  backdrop_season_finale:
+    overlay:
+      back_color: '#ffb9028C'
+      weight: 50
+      back_height: 90
+      back_width: 700
+      horizontal_offset: 70
+      vertical_offset: 50
+      back_line_width: 2
+      horizontal_align: left
+      vertical_align: bottom
+      back_line_color: '#000000'
+      back_radius: '12'
+      group: TSSK_backdrop
+      name: backdrop
+    tvdb_show: '371572'
+  TSSK_S3:
+    overlay:
+      font_color: '#000000'
+      weight: 50
+      font_size: 55
+      horizontal_offset: 100
+      vertical_offset: 75
+      horizontal_align: left
+      vertical_align: bottom
+      group: TSSK_text
+      name: text(SEASON 3 FINALE)
+    tvdb_show: '371572'

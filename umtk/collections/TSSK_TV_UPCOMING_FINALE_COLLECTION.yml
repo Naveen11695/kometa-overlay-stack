@@ -1,0 +1,9 @@
+collections:
+  Upcoming Finale:
+    summary: Shows with a season finale within 31 days
+    build_collection: true
+    sync_mode: sync
+    ignore_blank_results: 'true'
+    item_label: UpcomingFinale
+    non_item_remove_label: UpcomingFinale
+    tvdb_show: 81797, 447095

@@ -1,0 +1,140 @@
+#Last updated: 2026-08-14
+overlays:
+  backdrop_trending_top_10_tvdb_equal:
+    overlay:
+      weight: 2000
+      group: TRENDING
+      name: top10equal
+      url: https://raw.githubusercontent.com/netplexflix/Overlays/refs/heads/main/TSSK-Kabeb/Trending/trendingtop10equal.png
+    tvdb_show: 371572, 383203, 459552, 403245, 468000, 388589, 457730, 421070, 465664,
+      366924
+  trending_top10_1_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(1)
+    tvdb_show: '371572'
+  trending_top10_2_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(2)
+    tvdb_show: '383203'
+  trending_top10_3_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(3)
+    tvdb_show: '459552'
+  trending_top10_4_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(4)
+    tvdb_show: '403245'
+  trending_top10_5_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(5)
+    tvdb_show: '468000'
+  trending_top10_6_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(6)
+    tvdb_show: '388589'
+  trending_top10_7_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(7)
+    tvdb_show: '457730'
+  trending_top10_8_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(8)
+    tvdb_show: '421070'
+  trending_top10_9_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(9)
+    tvdb_show: '465664'
+  trending_top10_10_tvdb:
+    overlay:
+      font_color: '#dcb13d'
+      stroke_color: '#ffffff'
+      font_size: 80
+      horizontal_offset: -407
+      vertical_offset: 300
+      stroke_width: 1
+      horizontal_align: center
+      vertical_align: top
+      font: fonts/Roboto-Black.ttf
+      name: text(10)
+    tvdb_show: '366924'
