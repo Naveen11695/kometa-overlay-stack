@@ -5,21 +5,21 @@ overlays:
       weight: 2000
       group: TRENDING
       name: top10up
-      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+      url: https://raw.githubusercontent.com/netplexflix/Overlays/refs/heads/main/TSSK-Kabeb/Trending/trendingtop10shortup.png
     tmdb_movie: 950028, 1315772, 1081003
   backdrop_trending_top_10_equal:
     overlay:
       weight: 2000
       group: TRENDING
       name: top10equal
-      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+      url: https://raw.githubusercontent.com/netplexflix/Overlays/refs/heads/main/TSSK-Kabeb/Trending/trendingtop10shortequal.png
     tmdb_movie: 969681, 1368337, 1339713, 1275779, 1212763
   backdrop_trending_top_10_down:
     overlay:
       weight: 2000
       group: TRENDING
       name: top10down
-      url: https://raw.githubusercontent.com/Naveen11695/County/refs/heads/master/trendingtop10TLshortequal_padded.png
+      url: https://raw.githubusercontent.com/netplexflix/Overlays/refs/heads/main/TSSK-Kabeb/Trending/trendingtop10shortdown.png
     tmdb_movie: 1284041, 1612018
   trending_top10_1:
     overlay:

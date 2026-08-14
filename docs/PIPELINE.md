@@ -10,7 +10,6 @@ flowchart LR
         JHN["jhn322/kometa-config"]
         JMXD["jmxd media-info"]
         TSSK["TSSK-Kabeb / netplexflix/Overlays"]
-        County["Naveen11695/County"]
     end
 
     subgraph generators["Generator containers"]
@@ -61,9 +60,8 @@ UMTK writes **30 files** to the mounted Kometa `umtk/` folder:
 | Collections | 15 | `TSSK_TV_RETURNING_COLLECTION.yml`, `UMTK_MOVIES_TRENDING_COLLECTION.yml` |
 
 - TSSK (TV Show Status) is integrated into UMTK — no separate TSSK container
-- Kabeb network logos reference [netplexflix/Overlays](https://github.com/netplexflix/Overlays) (`TSSK-Kabeb/`)
-- Movie trending badges use artwork from [Naveen11695/County](https://github.com/Naveen11695/County)
-- **Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) container or [quickStartKometa](https://github.com/netplexflix/quickStartKometa)
+- Kabeb network logos and trending top-10 badges (movies + TV) load artwork from [netplexflix/Overlays](https://github.com/netplexflix/Overlays) (`TSSK-Kabeb/`) via remote URLs in generated YAML and `TSSK-Kabeb.yml`
+- **Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) Docker container, standalone `/docker/netplexflix`, or [quickStartKometa](https://github.com/netplexflix/quickStartKometa)
 
 **Compose:** `docker/umtk.compose.yml`  
 **Snapshots in repo:** `umtk/overlays/` and `umtk/collections/`

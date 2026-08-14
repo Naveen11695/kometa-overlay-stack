@@ -31,7 +31,6 @@ flowchart TB
         JHN["jhn322/kometa-config"]
         JMXD["jmxd media-info"]
         KABEB["TSSK-Kabeb / netplexflix/Overlays"]
-        County["Naveen11695/County"]
     end
 
     subgraph stage1["1. posterizarr"]
@@ -189,21 +188,22 @@ This repo ships sanitized collection configs in `collections/` (no credentials).
 
 ### TV / Show collections
 
-Genres, streaming services (via `3-Movies_Studios.yml` on the Shows library), franchises, awards, and IMDb/Rotten Tomatoes chart lists.
+Genres, streaming services (via `3-Movies_Studios.yml` on the Shows library), UMTK/TSSK status collections, awards, and IMDb/Rotten Tomatoes chart lists. Franchises use Kometa's built-in `pmm: franchise` template (not `7-TV_Franchises.yml`).
 
 <a href="docs/images/collections-tv-shows.png">
   <img src="docs/images/collections-tv-shows.png" alt="TV collections — genres, streaming, franchises, awards, IMDb/RT charts" width="1024">
 </a>
 
-| File | Contents |
-|------|----------|
-| `7-TV.yml` | Chart lists — IMDb Top 250, Popular, Trending, Trakt Most Watched |
-| `7-TV_Genres.yml` | Genre smart collections |
-| `7-TV_Awards.yml` | Emmy, Golden Globe, and other award winners |
-| `7-TV_Franchises.yml` | TV franchise groupings |
-| `7-TV_Networks.yml` | Network-based collections |
-| `7-TV_Specials.yml` | Themes, decades, and curated specials |
-| `3-Movies_Studios.yml` | Streaming service collections (Netflix, HBO, Disney+, etc.) |
+| File | Contents | Production |
+|------|----------|------------|
+| `umtk/*_COLLECTION.yml` (12 files) | UMTK/TSSK status and trending collections | Active |
+| `7-TV.yml` | Chart lists — IMDb Top 250, Popular, Trending, Trakt Most Watched | Active |
+| `7-TV_Genres.yml` | Genre smart collections | Active |
+| `7-TV_Awards.yml` | Emmy, Golden Globe, and other award winners | Active |
+| `7-TV_Specials.yml` | Themes, decades, and curated specials | Active |
+| `3-Movies_Studios.yml` | Streaming service collections (Netflix, HBO, Disney+, etc.) | Active |
+| `7-TV_Franchises.yml` | TV franchise groupings | In repo only |
+| `7-TV_Networks.yml` | Network-based collections | In repo only |
 
 ### Movie collections
 
@@ -236,13 +236,14 @@ Defined in `collections/3-Movies_People.yml`. Each collection uses `file_poster:
 
 ### Anime collections
 
-| File | Contents |
-|------|----------|
-| `1-Anime.yml` | MAL chart lists — Top Airing, Popular, Trending |
-| `1-Anime_Genres.yml` | Anime genre collections |
-| `1-Anime_Franchises.yml` | Anime franchise groupings |
-| `1-Anime_Networks.yml` | Simulcast network collections |
-| `1-Anime_Years.yml` | Year-based collections |
+| File | Contents | Production |
+|------|----------|------------|
+| `umtk/*_COLLECTION.yml` (12 files) | UMTK/TSSK status collections (same set as Shows) | Active |
+| `1-Anime.yml` | MAL chart lists — Top Airing, Popular, Trending | Active |
+| `1-Anime_Genres.yml` | Anime genre collections | Active |
+| `1-Anime_Years.yml` | Year-based collections | Active |
+| `1-Anime_Franchises.yml` | Anime franchise groupings | In repo only |
+| `1-Anime_Networks.yml` | Simulcast network collections | In repo only |
 
 Wire collections in `config.yml` under each library's `collection_files`. See `config.example.yml` for production wiring. Copy collection YAMLs to `config/` on your Docker host:
 
@@ -262,17 +263,16 @@ cp -r $STACK/umtk/collections/* $CONFIG/umtk/
 | **jmxd overlays** | [jmxd/Kometa](https://github.com/jmxd/Kometa) | Media-info bar templates |
 | **jhn322 config** | [jhn322/kometa-config](https://github.com/jhn322/kometa-config) | Base config structure and flat overlay naming |
 | **UMTK** | [netplexflix/Upcoming-Movies-TV-Shows-for-Kometa](https://github.com/netplexflix/Upcoming-Movies-TV-Shows-for-Kometa) | Status ribbons, trending, Coming Soon (15 overlays + 15 collections) |
-| **TSSK-Kabeb** | [netplexflix/Overlays](https://github.com/netplexflix/Overlays) | Network logos and Kabeb badge artwork |
-| **County** | [Naveen11695/County](https://github.com/Naveen11695/County) | Movie trending top-10 badge images |
+| **TSSK-Kabeb** | [netplexflix/Overlays](https://github.com/netplexflix/Overlays) | Network logos, Kabeb badges, and trending top-10 artwork (remote URLs via UMTK + `TSSK-Kabeb.yml`) |
 
-**Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) container (UMTK manages Kabeb), [quickStartKometa](https://github.com/netplexflix/quickStartKometa).
+**Not used:** standalone [netplexflix/Overlays](https://github.com/netplexflix/Overlays) Docker container (UMTK manages Kabeb overlays), standalone `/docker/netplexflix`, [quickStartKometa](https://github.com/netplexflix/quickStartKometa).
 
 Full attribution table: [docs/SOURCES.md](docs/SOURCES.md)
 
 ## What's customized vs upstream
 
 - **Overlay YAML** — sourced from jhn322/jmxd, reorganized into `overlays/` tree; production uses flat `config/` paths ([mapping](docs/MAPPING.md))
-- **Assets** — jmxd badges, TSSK-Kabeb logos, County trending images bundled in `assets/`
+- **Assets** — jmxd badges and Kabeb trending images bundled in `assets/`; network logos load from [netplexflix/Overlays](https://github.com/netplexflix/Overlays) GitHub raw URLs
 - **UMTK** — 30 generated files snapshotted in `umtk/overlays/` and `umtk/collections/` (collections were missing from old published repo)
 - **Collections** — jhn322 chart/genre/franchise YAMLs in `collections/`; posterizarr artwork at `config/posters/` on Docker host
 - **Library names** — `Movies`, `Shows`, `Anime` (not "TV Shows")
