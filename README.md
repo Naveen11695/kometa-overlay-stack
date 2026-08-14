@@ -74,7 +74,7 @@ See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and vol
 4K/HDR badges, NEW ribbon, IMDb ratings, and media-info bar (DIGITAL+, codec, resolution).
 
 <a href="docs/images/movies-overlays.png">
-    <img width="1778" height="1007" alt="Screenshot 2026-08-14 at 2 12 16 PM" src="https://github.com/user-attachments/assets/9ff853bf-8244-41e8-a216-bef168d2932a" />
+  <img src="docs/images/movies-overlays.png" alt="Movie overlays — 4K, HDR, NEW, ratings, DIGITAL+" width="1024">
 </a>
 
 ### Shows
@@ -82,11 +82,11 @@ See [docs/PIPELINE.md](docs/PIPELINE.md) for detailed stage descriptions and vol
 Streaming network logos, RETURNING/ENDED status ribbons, GRAB TO WATCH banner, and ratings.
 
 <a href="docs/images/tv-shows-overlays.png">
-      <img width="1265" height="293" alt="Screenshot 2026-08-14 at 12 38 51 PM" src="https://github.com/user-attachments/assets/3511e530-54b9-4ac2-9cb6-46ea655f4f48" alt="Show overlays — streaming logos, RETURNING, GRAB TO WATCH, ratings" />
+  <img src="docs/images/tv-shows-overlays.png" alt="Show overlays — streaming logos, RETURNING, GRAB TO WATCH, ratings" width="1024">
 </a>
 
 <a href="docs/images/tv-streaming-logos.png">
-  <img width="1631" height="311" alt="Screenshot 2026-08-14 at 12 39 59 PM" src="https://github.com/user-attachments/assets/3af613f0-b03c-48ea-85f9-3acfcf794536" />
+  <img src="docs/images/tv-streaming-logos.png" alt="Show overlays — Netflix, HBO, Disney+ logos with RETURNING/ENDED" width="1024">
 </a>
 
 ### Anime
@@ -94,7 +94,7 @@ Streaming network logos, RETURNING/ENDED status ribbons, GRAB TO WATCH banner, a
 Series-level ratings and ENDED status.
 
 <a href="docs/images/anime-overlays.png">
-    <img width="1625" height="305" alt="Screenshot 2026-08-14 at 12 40 20 PM" src="https://github.com/user-attachments/assets/32894cbe-5d6d-4bbd-9a7e-5795a269b485" alt="Anime series overlays — ratings and ENDED status" />
+  <img src="docs/images/anime-overlays.png" alt="Anime series overlays — ratings and ENDED status" width="1024">
 </a>
 
 ### Anime Episodes
@@ -102,7 +102,7 @@ Series-level ratings and ENDED status.
 Canon/filler tags, season/episode labels, and per-episode ratings.
 
 <a href="docs/images/anime-episode-overlays.png">
-<img width="1456" height="556" alt="Screenshot 2026-08-14 at 12 40 47 PM" src="https://github.com/user-attachments/assets/30fe41f9-3ad2-49a9-858c-51ab3727468e"  alt="Anime episode overlays — CANON tags, season/episode labels, ratings"/>
+  <img src="docs/images/anime-episode-overlays.png" alt="Anime episode overlays — CANON tags, season/episode labels, ratings" width="1024">
 </a>
 
 ## Overlay Anatomy
